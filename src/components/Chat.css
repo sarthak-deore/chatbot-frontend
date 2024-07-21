@@ -1,0 +1,74 @@
+.App {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f7f7f7;
+}
+
+.chat-container {
+  width: 100%;
+  max-width: 600px;
+  height: 80vh;
+  overflow-y: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+.chat-message {
+  margin: 10px 0;
+  padding: 10px 15px;
+  border-radius: 20px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+.chat-message.user {
+  background-color: #dcf8c6;
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+.chat-message.assistant {
+  background-color: #f1f0f0;
+  align-self: flex-start;
+  margin-right: auto;
+}
+
+.input-container {
+  display: flex;
+  width: 100%;
+  max-width: 600px;
+  padding: 10px;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  margin-right: 10px;
+  outline: none;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

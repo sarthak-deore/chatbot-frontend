@@ -1,0 +1,22 @@
+/* Navbar.css */
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: #343a40;
+  padding: 1rem;
+}
+
+nav a {
+  color: #ffffff;
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.nav-right {
+  margin-left: auto;
+}
