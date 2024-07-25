@@ -25,5 +25,7 @@ export const login = (credentials) => api.post("/users/login", credentials);
 export const getProfile = () => api.get("/users/me");
 export const chat = (msgs) => api.post("/chat", msgs);
 export const logoutAll = () => api.post("/users/logout");
+export const mail = () => api.post("/mail");
+export const verifyOtp = (otp) => api.post("/verify", otp);
 
 export default api;

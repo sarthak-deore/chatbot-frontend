@@ -1,11 +1,13 @@
 import React, { useState, useContext } from "react";
+import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { login } from "../api";
+import { login, getProfile } from "../api";
 import { AuthContext } from "../context/AuthContext";
 import "./Form.css";
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const { login: authenticate } = useContext(AuthContext);
 
@@ -18,30 +20,61 @@ const Login = () => {
     try {
       const response = await login(formData);
       authenticate(response.data.token);
-      alert("Login successful");
-      navigate("/chat"); // Redirect to profile page
+      toast.success("Logged in successfully!", {
+        position: "top-right",
+        autoClose: 3000,
+      });
+      const profile = await getProfile();
+      if (!profile.data.verified) {
+        return navigate("/verify");
+      } else {
+        return navigate("/chat");
+      }
     } catch (error) {
-      alert("Login failed");
+      toast.error("Login failed. Please try again.", {
+        position: "top-right",
+        autoClose: 3000,
+      });
+      console.log("Login failed");
+      // Clear the form fields
+      setFormData({ email: "", password: "" });
     }
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="login-form">
       <h1>Login</h1>
       <input
         type="email"
         name="email"
         placeholder="Email"
+        value={formData.email}
         onChange={handleChange}
         required
+        className="form-input"
       />
-      <input
-        type="password"
-        name="password"
-        placeholder="Password"
-        onChange={handleChange}
-        required
-      />
+      <div className="password-container">
+        <input
+          type={showPassword ? "text" : "password"}
+          name="password"
+          placeholder="Password"
+          value={formData.password}
+          onChange={handleChange}
+          required
+          className="form-input"
+        />
+        <button
+          type="button"
+          className="show-password-button"
+          onClick={togglePasswordVisibility}
+        >
+          {showPassword ? "Hide" : "Show"}
+        </button>
+      </div>
       <button type="submit">Login</button>
     </form>
   );

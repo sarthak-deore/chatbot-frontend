@@ -20,3 +20,9 @@ nav a:hover {
 .nav-right {
   margin-left: auto;
 }
+
+/* Navbar.css */
+.active {
+  font-weight: bold;
+  color: #4ad9c1;
+}

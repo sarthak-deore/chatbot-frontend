@@ -1,14 +1,62 @@
 /* Profile.css */
 .profile {
-  background-color: #ffffff;
+  background-color: #f9f9f9;
   padding: 2rem;
   margin: 2rem auto;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  text-align: center;
+  max-width: 600px;
+  font-family: Arial, sans-serif;
 }
 
-.profile p {
+.profile h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.profile-info {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info p {
+  font-size: 1.1rem;
+  color: #555;
   margin: 0.5rem 0;
+}
+
+.profile-info p strong {
+  color: #333;
+}
+
+.profile-info p {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.profile-info p:last-child {
+  border-bottom: none;
+}
+
+.profile-info p.verified {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.verify-button {
+  background-color: #6eb077;
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.verify-button:hover {
+  background-color: #0056b3;
 }
