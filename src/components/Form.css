@@ -71,12 +71,12 @@ form button:hover {
 }
 
 /* OTP verify css */
+
 .verify-container {
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 50vh; /* Full viewport height to center vertically */
-  background-color: #f9f9f9; /* Light background color */
+  justify-content: center;
+  margin-top: 35px;
 }
 
 .verify-form {
